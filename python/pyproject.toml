@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wind_turbine"
+version = "0.1.0"
+description = "Wind turbine design helper"
+authors = [{name = "Wind Turbine Team", email = "team@windturbine.com"}]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "pyside6",
+    "matplotlib",
+    "click",
+    "pandas",
+    "numpy"
+]
+
+[project.scripts]
+wind-turbine = "wind_turbine:main"
+wind-turbine-gui = "wind_turbine.gui:run_gui"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]

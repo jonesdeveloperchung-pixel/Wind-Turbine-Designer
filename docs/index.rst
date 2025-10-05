@@ -61,7 +61,7 @@ The power coefficient :math:`C_p` as a function of TSR uses an analytical Blasiu
 
 With empirically determined coefficients:
 - :math:`a = 0.5`
-- :math:`b = 0.3`
+- :math:`b = 0.3` 
 - :math:`c = 0.02`
 
 Generator Matching
@@ -88,7 +88,7 @@ Rust Core API
 ``Env``
   Environmental conditions structure containing air density and wind speed.
 
-``Constraints``
+``Constraints`` 
   Design constraints including blade radius, number of blades, and generator type.
 
 ``TurbineConfig``
@@ -159,7 +159,7 @@ IEC-61400-1 Compliance
 This implementation adheres to IEC-61400-1 "Wind turbines - Part 1: Design requirements" including:
 
 - **Section 7**: Structural design methodology
-- **Annex D**: Simplified load calculations
+- **Annex D**: Simplified load calculations  
 - **Annex F**: Fatigue load calculations
 
 The core solver uses validated models from the standard for:
@@ -195,7 +195,7 @@ Scalability
 
 The architecture supports:
 - Batch processing of multiple designs
-- Parameter sweeps and optimization studies
+- Parameter sweeps and optimization studies  
 - Integration with larger simulation frameworks
 - Web API deployment via WASM compilation
 
@@ -233,28 +233,28 @@ Basic Design Generation
 .. code-block:: python
 
    import wind_calc
-
+   
    # Define operating conditions
    env = wind_calc.PyEnv(air_density=1.225, wind_speed=8.0)
-
-   # Set design constraints
+   
+   # Set design constraints  
    constraints = wind_calc.PyConstraints(
        blade_radius=0.75,
        num_blades=3,
        generator_type=wind_calc.PyGeneratorType.Brushless
    )
-
+   
    # Create configuration
    config = wind_calc.PyTurbineConfig(
        target_wattage=100.0,
-       env=env,
+       env=env, 
        constraints=constraints
    )
-
+   
    # Generate design
    solver = wind_calc.PySolver(config)
    summary = solver.design_summary()
-
+   
    print(f"Rotor area: {summary['rotor_area']:.2f} m²")
    print(f"Optimal TSR: {summary['tsr']:.1f}")
    print(f"Generator RPM: {summary['rpm']:.0f}")
@@ -265,7 +265,7 @@ Power Curve Analysis
 .. code-block:: python
 
    from wind_turbine.visualize import plot_power_curve
-
+   
    # Define turbine configuration
    config = {
        'blade_radius': 0.6,
@@ -273,7 +273,7 @@ Power Curve Analysis
        'cut_in': 2.5,
        'cut_out': 25.0
    }
-
+   
    # Generate and display power curve
    plot_power_curve(config)
 
@@ -284,7 +284,7 @@ Batch Processing
 
    import wind_calc
    import pandas as pd
-
+   
    # Parameter sweep
    results = []
    for radius in [0.4, 0.5, 0.6, 0.7]:
@@ -300,13 +300,13 @@ Batch Processing
                env=env,
                constraints=constraints
            )
-
+           
            solver = wind_calc.PySolver(config)
            summary = solver.design_summary()
            summary['input_radius'] = radius
            summary['input_wattage'] = wattage
            results.append(summary)
-
+   
    # Convert to DataFrame for analysis
    df = pd.DataFrame(results)
    df.to_csv('design_sweep.csv', index=False)
@@ -339,3 +339,10 @@ Getting Help
 - Documentation: Comprehensive API reference
 - Examples: Working code samples in repository
 - Community: Discussion forums and user groups
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

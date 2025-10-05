@@ -1,0 +1,2 @@
+rotor_area,blade_length,tsr,rpm,gear_ratio,generator_type,cut_in,cut_out
+0.031415926535897934,0.1,12.533497706742214,7181.165211332249,4.787443474221499,Brushless,2.5,25.0

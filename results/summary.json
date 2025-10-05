@@ -1,0 +1,10 @@
+{
+  "rotor_area": 0.031415926535897934,
+  "blade_length": 0.1,
+  "tsr": 12.533497706742214,
+  "rpm": 7181.165211332249,
+  "gear_ratio": 4.787443474221499,
+  "generator_type": "Brushless",
+  "cut_in": 2.5,
+  "cut_out": 25.0
+}
